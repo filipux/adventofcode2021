@@ -56,13 +56,11 @@ def filtersafetyarea(cubes):
 def calculatevolume(cubes):
     res = []
     while len(cubes) > 0:
-        s = cubes.pop(0)
-        toremove = []
         toadd = []
+        toremove = []
+        s = cubes.pop(0)
         for c in res:
-            if inside(c, s):
-                toremove.append(c)
-            elif overlap(c, s):
+            if overlap(c, s):
                 toadd += remove(c,s)
                 toremove.append(c)
 
